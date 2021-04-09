@@ -1,23 +1,24 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import NavBarMenu from './NavBarMenu';
 
-class UsertCreate extends Component {
-    constructor(){
-        super();
-        this.state={
-            first_name:null,
-            last_name:null,
-            email:null,
-        }
-    }
-    create(){
+const UsertCreate = () => {
+
+    const [first_name,setFirstName] = useState('');
+    const [last_name,setLastName] = useState('');
+    const [email,setMail] = useState('');
+
+    const create = async () => {
         //console.warn(this.state)
         fetch('https://reqres.in/api/users',{
-            method: 'Post',
+            method: 'POST',
             headers:{
                 'Content-type':'application/json'
             },
-            body: JSON.stringify(this.state)
+            body: JSON.stringify({
+                first_name:first_name,
+                last_name:last_name,
+                email:email
+            })
         }).then((result)=>{
             result.json().then((res)=>{
                 //console.warn(res)
@@ -34,27 +35,30 @@ class UsertCreate extends Component {
             })
         })
     }
-    render() {
+
+    const handelUserinputFirstName = (event) => {
+        setFirstName(event.target.value);
+    };
+    const handelUserinputLastName = event => {
+        setLastName(event.target.value);
+    };
+    const handelUserinputMail = (event) => {
+        setMail(event.target.value);
+    };
+    
         return (
             <div>
                 <NavBarMenu/>
                 <h1>userCreate</h1>
                 <div>
-                    <input onChange={(event)=>{
-                        this.setState({first_name: event.target.value})
-                    }} placeholder='First Name' /> <br/> <br />
-                    <input onChange={(event)=>{
-                        this.setState({last_name: event.target.value})
-                    }} placeholder='Last Name' /> <br/> <br />
-                    <input onChange={(event)=>{
-                        this.setState({email: event.target.value})
-                    }} placeholder='Email' /> <br/> <br />
+                    <input onChange={handelUserinputFirstName} placeholder='First Name' /> <br/> <br />
+                    <input onChange={handelUserinputLastName} placeholder='Last Name' /> <br/> <br />
+                    <input onChange={handelUserinputMail} placeholder='Email' /> <br/> <br />
 
-                    <button onClick={() => { this.create() }}>Add User</button>
+                    <button onClick={() => { create() }}>Add User</button>
                 </div>
             </div>
         );
     }
-}
 
 export default UsertCreate;

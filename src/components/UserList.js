@@ -1,45 +1,51 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Table} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import NavBarMenu from './NavBarMenu';
+import {useState, useEffect} from 'react'
 
-class UserList extends Component {
-    constructor(){
-        super();
-        this.state={
-            list:null,
+const UserList = () => {
+
+    const [list, setList] = useState([]);
+    useEffect(() => {
+      getList();
+    },[]);
+    const getList = async () => {
+        try
+        {
+            const response = await fetch("https://reqres.in/api/users");
+            const result = await response.json();
+                //console.warn(result.data)
+                setList(result.data);
+                //console.warn(list);
+        } catch(err){
+            console.log(err);
         }
     }
-    componentDidMount(){
-      this.getList()
-    }
-    getList(){
-        fetch("https://reqres.in/api/users").then((response) => {
-            response.json().then((result)=>{
-                //console.warn(result)
-                this.setState({list:result.data})
-            })
-        })
-    }
-    delete(id){
-        fetch('https://reqres.in/api/users/'+id,{
-            method: 'DELETE',
-        }).then((res)=>{
+    const deleteItem =(id)=>{
+        try
+        {
+            fetch('https://reqres.in/api/users/'+id,{
+            method: 'DELETE',}).then((res)=>{
             //result.json().then((res)=>{
                // console.warn(res)
                 alert("User Deleted\n Response Status: "+res.status);
-                this.getList()
+                getList()
             })
+        }
+        catch (err)
+        {
+            console.log(err);
+        }
+        
     }
-    
-    render() {
         //console.warn(this.state)
         return (
             <div>
                 <NavBarMenu />
                 <h1>userList</h1>
                 {
-                    this.state.list?
+                    list?
                         <Table striped>
                             <thead>
                                 <tr>
@@ -51,7 +57,7 @@ class UserList extends Component {
                                 </tr>
                             </thead>
                             <tbody>
-                        {this.state.list.map((item)=>
+                        {list && list.map((item)=>
                         // <div key={item.id} className="list-wrapper">
                         // <span >{item.first_name}</span>
                         // <span >{item.last_name}</span>
@@ -63,7 +69,7 @@ class UserList extends Component {
                             <td>{item.last_name}</td>
                             <td>{item.email}</td>
                             <td><Link to={'/update/'+item.id}>Edit | </Link>
-                            <span onClick={()=>this.delete(item.id)}>Delete</span></td>
+                            <span onClick={()=> deleteItem(item.id)}>Delete</span></td>
                             
                         </tr>
                         )}
@@ -74,6 +80,5 @@ class UserList extends Component {
             </div>
         );
     }
-}
 
 export default UserList;

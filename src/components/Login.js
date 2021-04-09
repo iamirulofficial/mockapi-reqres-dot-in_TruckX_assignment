@@ -1,54 +1,60 @@
-import React, { Component } from 'react';
 import NavBarMenu from './NavBarMenu';
+import { useState } from 'react'
 
-class Login extends Component {
-    constructor(){
-        super();
-        this.state={
-            email:'',
-            password:'',
-        }
-    }
-    login(){
-        let data = {
-            email:this.state.email,
-            password:this.state.password,
-        }
-        console.log(data)
-        fetch('https://reqres.in/api/login',{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-              },
-              body: JSON.stringify(data)
-        }).then((response) => {
-            response.json().then((result)=>{
-                console.warn(result)
-                //this.setState({list:result.data})
-                if(response.status === 200){
-                    localStorage.setItem('login',response)
-                    console.warn(this.props.history.push('list'))
-                }
-                else{
-                    alert("Please Check Mail/Password")
-                }
+const Login = (props) => {
+
+    const [email, setMail] = useState('');
+    const [password, setPass] = useState('');
+
+    const login = () => {
+        try {
+            fetch('https://reqres.in/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: JSON.stringify({
+                    email,
+                    password
+                })
+            }).then((response) => {
+                response.json().then((result) => {
+                    console.warn(result)
+                    //this.setState({list:result.data})
+                    if (response.status === 200) {
+                        localStorage.setItem('login', response)
+                        console.warn(props.history.push('list'))
+                    }
+                    else {
+                        alert("Please Check Mail/Password")
+                    }
+                })
             })
-        })
-
+        } catch (err) {
+            console.log(err);
         }
-    render() {
-        return (
-            <div>
-                <NavBarMenu/>
-                <h1>Login</h1>
-                <input type='text' name="email" onChange={(event)=>this.setState({email:event.target.value})} placeholder='email'/> <br /> <br />
-                <input type='password' name='password' onChange={(event)=>this.setState({password:event.target.value})} placeholder='password' /> <br /> <br />
-                <button onClick={()=>this.login()}>Login</button>
 
-            </div>
-        );
     }
+
+    const handelUsermail = event => {
+        setMail(event.target.value);
+    };
+
+    const handelPassword = event => {
+        setPass(event.target.value);
+    };
+
+    return (
+        <div>
+            <NavBarMenu />
+            <h1>Login</h1>
+            <input type='text' name="email" onChange={handelUsermail} placeholder='email' /> <br /> <br />
+            <input type='password' name='password' onChange={handelPassword} placeholder='password' /> <br /> <br />
+            <button onClick={() => login()}>Login</button>
+
+        </div>
+    );
 }
 
 export default Login;
