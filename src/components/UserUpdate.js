@@ -40,7 +40,6 @@ class UserUpdate extends Component {
                     'first_name:'+ res.first_name +'\n'+
                     'last_name:'+ res.last_name +'\n'+
                     'email:'+ res.email +'\n'+
-                    'updatedAt:'+ res.updatedAt +'\n'+
                     '}'
                 ]
                 alert("User Updated \n Response:\n"+putT)

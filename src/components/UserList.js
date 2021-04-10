@@ -39,7 +39,6 @@ const UserList = () => {
         }
         
     }
-        //console.warn(this.state)
         return (
             <div>
                 <NavBarMenu />

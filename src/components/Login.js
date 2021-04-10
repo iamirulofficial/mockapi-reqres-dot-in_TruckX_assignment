@@ -20,7 +20,7 @@ const Login = (props) => {
                 })
             }).then((response) => {
                 response.json().then((result) => {
-                    console.warn(result)
+                   // console.warn(result)
                     //this.setState({list:result.data})
                     if (response.status === 200) {
                         localStorage.setItem('login', response)
