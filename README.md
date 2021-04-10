@@ -18,7 +18,7 @@ Then Run
 
 # Folder Structure
 
-
+<img src="https://raw.githubusercontent.com/iamirulofficial/mockapi-reqres-dot-in_TruckX_assignment/main/docs/6.PNG?token=ALKGGCTFZTJ6CKNT5IPKBLLAPMPYA" />
 
 # API
 As the api is placeholder / readonly api having problem in Updating at Backend for PUT/POST/DELETE but getting response as usual
