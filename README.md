@@ -1,66 +1,46 @@
-# Getting Started with Create React App
+# Getting Started 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+`npm install`
 
-## Available Scripts
+Then Run
 
-In the project directory, you can run:
+`npm start`
 
-### `npm start`
+# Functionalties:
+  - User List via GET Api
+  - Login 
+  - Router Integration
+  - Protected Routing
+  - User Search
+  - User Add
+  - User Create
+  - User Edit
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Folder Structure
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# API
+As the api is placeholder / readonly api having problem in Updating at Backend for PUT/POST/DELETE but getting response as usual
 
-### `npm run build`
+# api/login
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+As the documentation suggests at reqres.in :
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img src="https://raw.githubusercontent.com/iamirulofficial/mockapi-reqres-dot-in_TruckX_assignment/main/docs/5.PNG?token=ALKGGCTIFDDSIMXS6FSZNN3APMMV4" />
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+While testing the login at api/login in Postman api sends tokens for both right and wrong passwords as well (See image)
 
-### `npm run eject`
+Right PASSWORD: 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<img src = "https://raw.githubusercontent.com/iamirulofficial/mockapi-reqres-dot-in_TruckX_assignment/main/docs/1.png?token=ALKGGCUGVKOEVTZEUL7AEQTAPMOBE" />
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Wrong Password:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<img src="https://raw.githubusercontent.com/iamirulofficial/mockapi-reqres-dot-in_TruckX_assignment/main/docs/2.png?token=ALKGGCVM3LRLPE3FDFV4I63APMN6A" />
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Responses
 
-## Learn More
+<img src="https://raw.githubusercontent.com/iamirulofficial/mockapi-reqres-dot-in_TruckX_assignment/main/docs/3.png?token=ALKGGCQJC3ZR47POI32SYY3APMOKG" />
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<img src="https://raw.githubusercontent.com/iamirulofficial/mockapi-reqres-dot-in_TruckX_assignment/main/docs/4.png?token=ALKGGCXLVRYN7GNINMMPIJTAPMOOC" />
