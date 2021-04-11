@@ -6,6 +6,10 @@ Then Run
 
 `npm start`
 
+Full overview of the App 
+
+https://youtu.be/jQR-ff8e-Vc
+
 Similar Project with Local Mock Api created bt JSON-SERVER with all edit / delete / create functionalties 
 
 https://github.com/iamirulofficial/local_mock_api_by_JSON-Server_TruckX_Assignment
