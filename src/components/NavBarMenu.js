@@ -1,3 +1,4 @@
+//Navbar Menu
 import { Navbar, Nav } from 'react-bootstrap'
 import {
     Link
@@ -11,7 +12,7 @@ const NavBarMenu = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Link to='/'>Home</Link>&nbsp;&nbsp;
+                        {/* <Link to='/'>Home</Link>&nbsp;&nbsp; */}
                         <Link to='/list'>List </Link>&nbsp;&nbsp;
                         <Link to='/create'>Create </Link>&nbsp;&nbsp;
                         <Link to='/search'>Search </Link>&nbsp;&nbsp;

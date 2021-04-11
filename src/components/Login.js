@@ -1,3 +1,4 @@
+//Login
 import NavBarMenu from './NavBarMenu';
 import { useState } from 'react'
 
@@ -49,6 +50,7 @@ const Login = (props) => {
         <div>
             <NavBarMenu />
             <h1>Login</h1>
+            <p>Use email: eve.holt@reqres.in  ||  password: cityslicka </p>
             <input type='text' name="email" onChange={handelUsermail} placeholder='email' /> <br /> <br />
             <input type='password' name='password' onChange={handelPassword} placeholder='password' /> <br /> <br />
             <button onClick={() => login()}>Login</button>
