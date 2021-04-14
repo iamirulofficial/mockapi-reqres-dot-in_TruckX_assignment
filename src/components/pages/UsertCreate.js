@@ -1,6 +1,6 @@
 //CREATE API
 import React, { useState } from 'react';
-import NavBarMenu from './NavBarMenu';
+import NavBarMenu from '../NavBarMenu';
 
 const UsertCreate = () => {
 

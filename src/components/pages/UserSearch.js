@@ -1,7 +1,7 @@
 //UserSearch
 import React from 'react';
 import { Table} from 'react-bootstrap'
-import NavBarMenu from './NavBarMenu';
+import NavBarMenu from '../NavBarMenu';
 import { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
 
@@ -12,6 +12,8 @@ const UserSearch = (props) => {
     useEffect(() => {
         getList();
     }, []);
+
+     //Function to Fetch the List
     const getList = async () => {
         try {
             const response = await fetch("https://reqres.in/api/users");
@@ -23,6 +25,8 @@ const UserSearch = (props) => {
             console.log(err);
         }
     }
+
+    //Function to process the delete request sending id
     const deleteItem =(id)=>{
         try
         {
@@ -40,6 +44,7 @@ const UserSearch = (props) => {
         }
         
     }
+    //Update User
     const updateInput = async (e) => {
         setKey(e.target.value);
         if (key.length > 2) {
@@ -76,11 +81,6 @@ const UserSearch = (props) => {
                             </thead>
                             <tbody>
                                 {list && list.map((item) =>
-                                    // <div key={item.id} className="list-wrapper">
-                                    // <span >{item.first_name}</span>
-                                    // <span >{item.last_name}</span>
-                                    // <span >{item.email}</span>
-                                    // </div>
                                     <tr key={item.id}>
                                         <td>{item.id}</td>
                                         <td>{item.first_name}</td>

@@ -1,5 +1,4 @@
-//import React, { Component } from 'react';
-import NavBarMenu from './NavBarMenu';
+import NavBarMenu from '../NavBarMenu';
 
 const Home = () => {
         return (
